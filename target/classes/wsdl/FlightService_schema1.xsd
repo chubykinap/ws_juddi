@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://client.juddi/" xmlns:tns="http://client.juddi/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="SQLTransactionException" nillable="true" type="tns:sqlFault"/>
+
+  <xs:element name="addFlight" type="tns:addFlight"/>
+
+  <xs:element name="addFlightResponse" type="tns:addFlightResponse"/>
+
+  <xs:element name="changeFlight" type="tns:changeFlight"/>
+
+  <xs:element name="changeFlightResponse" type="tns:changeFlightResponse"/>
+
+  <xs:element name="deleteFlight" type="tns:deleteFlight"/>
+
+  <xs:element name="deleteFlightResponse" type="tns:deleteFlightResponse"/>
+
+  <xs:element name="getFlights" type="tns:getFlights"/>
+
+  <xs:element name="getFlightsResponse" type="tns:getFlightsResponse"/>
+
+  <xs:complexType name="addFlight">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addFlightResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sqlFault">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="changeFlight">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="changeFlightResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFlights">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFlightsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="flight">
+    <xs:sequence>
+      <xs:element name="aircraft_type" type="xs:string" minOccurs="0"/>
+      <xs:element name="arrival_city" type="xs:string" minOccurs="0"/>
+      <xs:element name="departure_city" type="xs:string" minOccurs="0"/>
+      <xs:element name="departure_date" type="xs:string" minOccurs="0"/>
+      <xs:element name="flight_id" type="xs:int"/>
+      <xs:element name="flight_number" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteFlight">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteFlightResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
